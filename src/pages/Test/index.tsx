@@ -1,9 +1,9 @@
-import Navbar from "../../components/Navbar"
-
 const Test = () => {
   return (
-    <Navbar />
-  )
-}
+    <div>
+      <h1>Test</h1>
+    </div>
+  );
+};
 
-export default Test
+export default Test;
