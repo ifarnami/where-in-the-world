@@ -5,3 +5,8 @@ export type FetchedCountries = {
   population: number;
   flag: string;
 };
+
+export type Pages = {
+  number: number;
+  selected: boolean;
+};
