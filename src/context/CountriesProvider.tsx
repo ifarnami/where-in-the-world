@@ -13,7 +13,7 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
 
   const getCountry = async (page: number = 1) => {
     await axios
-      .get(`${baseUrl}/countries?_page=${page}&_per_page=8`)
+      .get(`${baseUrl}/countries?_page=${page}&_per_page=20`)
       .then((res) => {
         const data = res.data.data;
         setCountriesList(data);
