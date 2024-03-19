@@ -14,7 +14,7 @@ const CountryCard: React.FC<ICountryCardProps> = ({
   capital,
 }): JSX.Element => {
   return (
-    <div className="w-[250px] h-[380px] rounded-lg flex flex-col shadow-secondary overflow-hidden dark:bg-dark-elements">
+    <div className="w-64 h-96 rounded-lg flex flex-col shadow-secondary overflow-hidden dark:bg-dark-elements">
       <div className="h-1/3">
         <img src={imgAddress} alt="flag" />
       </div>
