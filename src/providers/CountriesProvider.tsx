@@ -1,24 +1,25 @@
 import { PropsWithChildren, useEffect, useState } from "react";
-import { CountriesContext } from "../utils/countriesContext";
+import { CountriesContext } from "../contexts/countriesContext";
 import axios from "axios";
 import { baseUrl } from "../api/baseUrl";
-import { FetchedCountries } from "../types/types";
+import { Country } from "../types/types";
+import { useNavigate } from "react-router-dom";
 
 interface ICountriesProviderProps extends PropsWithChildren {}
 
 const CountriesProvider: React.FC<ICountriesProviderProps> = ({
   children,
 }): JSX.Element => {
-  const [countriesList, setCountriesList] = useState<FetchedCountries[]>([]);
-  const [filteredCountries, setFilteredCountries] = useState<
-    FetchedCountries[]
-  >([]);
+  const navigate = useNavigate();
+  const [countriesList, setCountriesList] = useState<Country[]>([]);
+  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
 
   const getCountry = async (page: number = 1) => {
     await axios
       .get(`${baseUrl}/countries?_page=${page}&_per_page=20`)
       .then((res) => {
         const data = res.data.data;
+        console.log(data);
         setCountriesList(data);
         setFilteredCountries(data);
       })
@@ -43,7 +44,7 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
     if (selectedCountry) {
       return selectedCountry;
     } else {
-      throw new Error("There isn't any country with the given id!!!");
+      navigate("/");
     }
   };
 

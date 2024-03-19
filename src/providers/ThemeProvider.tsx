@@ -1,5 +1,5 @@
 import { PropsWithChildren, useState } from "react";
-import { ThemeContext } from "../utils/themeContext";
+import { ThemeContext } from "../contexts/themeContext";
 
 interface IThemeProviderProps extends PropsWithChildren {}
 
@@ -11,7 +11,6 @@ const ThemeProvider: React.FC<IThemeProviderProps> = ({
   );
 
   const changeTheme = () => {
-    console.log("triggerred");
     document.documentElement.classList.toggle("dark");
     setIsDark((ID) => !ID);
   };
