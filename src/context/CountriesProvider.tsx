@@ -36,9 +36,20 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
     setFilteredCountries(newList);
   };
 
+  const findCountry = (id: string) => {
+    const selectedCountry = filteredCountries.find(
+      (country) => country.id === id
+    );
+    if (selectedCountry) {
+      return selectedCountry;
+    } else {
+      throw new Error("There isn't any country with the given id!!!");
+    }
+  };
+
   return (
     <CountriesContext.Provider
-      value={{ filteredCountries, getCountry, filterCountries }}
+      value={{ findCountry, filteredCountries, getCountry, filterCountries }}
     >
       {children}
     </CountriesContext.Provider>
