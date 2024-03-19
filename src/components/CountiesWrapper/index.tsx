@@ -8,10 +8,11 @@ const CountriesWrapper: React.FC<ICountriesWrapperProps> = (): JSX.Element => {
 
   return (
     <ul className="w-full py-7 grid grid-cols-4 justify-items-center gap-10">
-      {filteredCountries.map((country, index) => {
+      {filteredCountries.map((country) => {
         return (
-          <li key={index}>
+          <li key={country.id}>
             <CountryCard
+              id={country.id}
               title={country.name}
               capital={country.capital}
               imgAddress={country.flag}
