@@ -2,8 +2,9 @@ import { createContext } from "react";
 import { FetchedCountries } from "../types/types";
 
 interface ICountriesContext {
-  countriesList: FetchedCountries[];
+  filteredCountries: FetchedCountries[];
   getCountry: (path: number) => void;
+  filterCountries: (searchParam: string) => void;
 }
 
 export const CountriesContext = createContext<ICountriesContext | undefined>(

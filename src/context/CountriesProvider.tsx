@@ -10,6 +10,9 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
   children,
 }): JSX.Element => {
   const [countriesList, setCountriesList] = useState<FetchedCountries[]>([]);
+  const [filteredCountries, setFilteredCountries] = useState<
+    FetchedCountries[]
+  >([]);
 
   const getCountry = async (page: number = 1) => {
     await axios
@@ -17,6 +20,7 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
       .then((res) => {
         const data = res.data.data;
         setCountriesList(data);
+        setFilteredCountries(data);
       })
       .catch((err) => console.error(err));
   };
@@ -25,8 +29,17 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
     getCountry();
   }, []);
 
+  const filterCountries = (searchParam: string) => {
+    const newList = countriesList.filter((country) =>
+      country.name.toLowerCase().includes(searchParam)
+    );
+    setFilteredCountries(newList);
+  };
+
   return (
-    <CountriesContext.Provider value={{ countriesList, getCountry }}>
+    <CountriesContext.Provider
+      value={{ filteredCountries, getCountry, filterCountries }}
+    >
       {children}
     </CountriesContext.Provider>
   );

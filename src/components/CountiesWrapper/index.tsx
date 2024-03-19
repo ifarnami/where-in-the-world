@@ -4,11 +4,11 @@ import CountryCard from "../CountryCard";
 interface ICountriesWrapperProps {}
 
 const CountriesWrapper: React.FC<ICountriesWrapperProps> = (): JSX.Element => {
-  const { countriesList } = useCountries();
+  const { filteredCountries } = useCountries();
 
   return (
     <ul className="w-full py-7 grid grid-cols-4 justify-items-center gap-10">
-      {countriesList.map((country, index) => {
+      {filteredCountries.map((country, index) => {
         return (
           <li key={index}>
             <CountryCard
