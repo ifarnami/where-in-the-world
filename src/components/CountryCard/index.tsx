@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
+import { formatNumbersWithCommas } from "../../helpers/helpers";
+
 interface ICountryCardProps {
   imgAddress: string;
   title: string;
   population: number;
   region: string;
   capital: string;
+  id: string;
 }
 
 const CountryCard: React.FC<ICountryCardProps> = ({
@@ -12,9 +16,19 @@ const CountryCard: React.FC<ICountryCardProps> = ({
   population,
   region,
   capital,
+  id,
 }): JSX.Element => {
+  const navigate = useNavigate();
+
+  const navigateToCountry = () => {
+    navigate(`country/${id}`);
+  };
+
   return (
-    <div className="w-64 h-96 rounded-lg flex flex-col shadow-secondary overflow-hidden dark:bg-dark-elements">
+    <div
+      className="w-64 h-96 rounded-lg flex flex-col shadow-secondary overflow-hidden dark:bg-dark-elements cursor-pointer"
+      onClick={navigateToCountry}
+    >
       <div className="h-1/3">
         <img src={imgAddress} alt="flag" />
       </div>
@@ -24,7 +38,7 @@ const CountryCard: React.FC<ICountryCardProps> = ({
           <p>
             Population:{" "}
             <span className="text-gray-500 dark:text-gray-400 font-normal">
-              {population}
+              {formatNumbersWithCommas(population)}
             </span>
           </p>
           <p>
