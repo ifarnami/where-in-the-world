@@ -4,14 +4,14 @@ import useCountries from "../../hooks/useCountries";
 interface ISearchBox {}
 
 const SearchBox: React.FC<ISearchBox> = (): JSX.Element => {
-  const { filterCountries } = useCountries();
+  const { searchForCountry } = useCountries();
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    filterCountries(e.target.value);
+    searchForCountry(e.target.value);
   };
 
   return (
-    <div className="w-fit h-fit bg-white shadow-secondary flex items-center pl-3 ml-10 rounded-md overflow-hidden dark:bg-dark-elements">
+    <div className="w-fit h-fit bg-white shadow-secondary flex items-center pl-3 rounded-md overflow-hidden dark:bg-dark-elements">
       <div className="text-2xl text-[#9EA5B1]">
         <IoIosSearch />
       </div>

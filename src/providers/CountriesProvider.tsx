@@ -30,7 +30,7 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
     getCountry();
   }, []);
 
-  const filterCountries = (searchParam: string) => {
+  const searchForCountry = (searchParam: string) => {
     const newList = countriesList.filter((country) =>
       country.name.toLowerCase().includes(searchParam)
     );
@@ -48,9 +48,26 @@ const CountriesProvider: React.FC<ICountriesProviderProps> = ({
     }
   };
 
+  const filterByRegion = (region: string) => {
+    if (region === "none") {
+      setFilteredCountries(countriesList);
+    } else {
+      const newList = countriesList.filter(
+        (country) => country.region.toLowerCase() === region
+      );
+      setFilteredCountries(newList);
+    }
+  };
+
   return (
     <CountriesContext.Provider
-      value={{ findCountry, filteredCountries, getCountry, filterCountries }}
+      value={{
+        findCountry,
+        filteredCountries,
+        getCountry,
+        searchForCountry,
+        filterByRegion,
+      }}
     >
       {children}
     </CountriesContext.Provider>
