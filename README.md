@@ -1,30 +1,22 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Where in the World 
+## Overview 
+Where in the World is a React project template utilizing TypeScript and Vite for rapid development with hot module replacement (HMR). Designed to get projects off the ground quickly, it incorporates a minimal setup with essential ESLint rules for code quality. 
+## Features 
+- React with TypeScript for strong typing and scalability. 
+- Vite for fast builds and HMR, improving developer experience. 
+- ESLint configured with basic and recommended rules for code quality and maintainability. 
+- Supports @vitejs/plugin-react with Babel or @vitejs/plugin-react-swc with SWC for Fast Refresh. 
+- Context api for state management.
+- Json-Server to handle a simulated server.
+## Getting Started 
+- Clone the ripo into your desired local directory.
+- Run `npm start` in root directory of this project.
+- Run `npx json-server --watch src/database/db.json` to launch server.
+- Run `npm run dev` to launch the project.
+## Expanding ESLint Configuration 
+The template outlines steps to enhance the ESLint configuration for production-level applications, including: 
+- Updating parser options. 
+- Adjusting ESLint plugin settings for TypeScript. 
+- Adding support for ESLint plugins related to React. 
+ ## License 
+ This project is based on a sample project from FrontEnd Mentor.
